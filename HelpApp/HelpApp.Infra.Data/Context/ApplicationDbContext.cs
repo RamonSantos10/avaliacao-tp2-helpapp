@@ -1,6 +1,7 @@
 ﻿using HelpApp.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace HelpApp.Infra.Data.Context
 {
     public class ApplicationDbContext : DbContext
