@@ -7,20 +7,24 @@ namespace HelpApp.Domain.Test
     public class ProductUnitTest
     {
         #region Testes Positivos
-        [Fact(DisplayName ="Create Product With Parameters Full")]
+
+        [Fact(DisplayName = "Create Product With Parameters Full")]
         public void CreateProduct_WithValidParameters_ResultObjectValisState()
         {
-            Action action= () => new Product(1, 
-                "Product Name", 
-                "Product Description", 
-                9.99m, 99, 
-                "https://img/product.jpg");
+            Action action = () => new Product(1,
+                "Product Name",
+                "Product Description",
+                9.99m, 99,
+                "https://i.imgur.com/RgIHk93.jpeg");
             action.Should()
                 .NotThrow<HelpApp.Domain.Validation.DomainExceptionValidation>();
         }
+
         #endregion
+
         #region Testes Negativos
-        [Fact(DisplayName ="Create Product With ID Negative")]
+
+        [Fact(DisplayName = "Create Product With ID Negative")]
         public void CreateProduct_NegativeIdValue_DomainExceptionInvalidId()
         {
             Action action = () => new Product(-1, "Product Name", "Product Description", 9.99m,
@@ -28,6 +32,22 @@ namespace HelpApp.Domain.Test
 
             action.Should().Throw<HelpApp.Domain.Validation.DomainExceptionValidation>()
                 .WithMessage("Update Invalid Id value");
+        }
+
+        [Fact(DisplayName = "Create Product With Null Name")]
+        public void CreateProduct_WithNullName_DomainException()
+        {
+            Action action = () => new Product(1, null, "Product Description", 9.99m, 99, "product image");
+            action.Should().Throw<HelpApp.Domain.Validation.DomainExceptionValidation>()
+                .WithMessage("Invalid name, name is required.");
+        }
+
+        [Fact(DisplayName = "Create Product With Empty Name")]
+        public void CreateProduct_WithEmptyName_DomainException()
+        {
+            Action action = () => new Product(1, "", "Product Description", 9.99m, 99, "product image");
+            action.Should().Throw<HelpApp.Domain.Validation.DomainExceptionValidation>()
+                .WithMessage("Invalid name, name is required.");
         }
 
         [Fact(DisplayName = "Create Product With Short Name")]
@@ -39,15 +59,38 @@ namespace HelpApp.Domain.Test
                  .WithMessage("Invalid name, too short, minimum 3 characters.");
         }
 
-        [Fact(DisplayName = "Create Product With Null URL Image")]
+        [Fact(DisplayName = "Create Product With Null Description")]
+        public void CreateProduct_WithNullDescription_DomainException()
+        {
+            Action action = () => new Product(1, "Product Name", null, 9.99m, 99, "product image");
+            action.Should().Throw<HelpApp.Domain.Validation.DomainExceptionValidation>()
+                .WithMessage("Invalid description, name is required.");
+        }
+
+        [Fact(DisplayName = "Create Product With Empty Description")]
+        public void CreateProduct_WithEmptyDescription_DomainException()
+        {
+            Action action = () => new Product(1, "Product Name", "", 9.99m, 99, "product image");
+            action.Should().Throw<HelpApp.Domain.Validation.DomainExceptionValidation>()
+                .WithMessage("Invalid description, name is required.");
+        }
+
+        [Fact(DisplayName = "Create Product With Short Description")]
+        public void CreateProduct_ShortDescriptionValue_DomainExceptionShortDescription()
+        {
+            Action action = () => new Product(1, "Product Name", "Desc", 9.99m, 99, "product image");
+            action.Should().Throw<HelpApp.Domain.Validation.DomainExceptionValidation>()
+                .WithMessage("Invalid description, too short, minimum 5 characters.");
+        }
+
+        [Fact(DisplayName = "Create Product With Null Image Name")]
         public void CreateProduct_WithNullImageName_NoDomainException()
         {
             Action action = () => new Product(1, "Product Name", "Product Description", 9.99m, 99, null);
             action.Should().NotThrow<HelpApp.Domain.Validation.DomainExceptionValidation>();
         }
 
-
-        [Fact(DisplayName = "Create Product With URL Image Empty")]
+        [Fact(DisplayName = "Create Product With Empty Image Name")]
         public void CreateProduct_WithEmptyImageName_NoDomainException()
         {
             Action action = () => new Product(1, "Product Name", "Product Description", 9.99m, 99, "");
@@ -64,7 +107,7 @@ namespace HelpApp.Domain.Test
                  .WithMessage("Invalid price negative value.");
         }
 
-        [Theory(DisplayName = "Create Product With Inavlid Stock")]
+        [Theory(DisplayName = "Create Product With Invalid Stock")]
         [InlineData(-5)]
         public void CreateProduct_InvalidStockValue_ExceptionDomainNegativeValue(int value)
         {
@@ -73,6 +116,7 @@ namespace HelpApp.Domain.Test
             action.Should().Throw<HelpApp.Domain.Validation.DomainExceptionValidation>()
                    .WithMessage("Invalid stock negative value.");
         }
+
         [Theory(DisplayName = "Create Product With Long URL Image")]
         [InlineData("https://avatars.githubusercontent.com/u/654654651398798798798798798798798798654654321321321321321321321321321321321321321321321658479879879846465465465465465132198498498465465246549879879846213219849849846521321684684987465132165419687498746541631658468465840123321005408?v=4&size=64")]
         public void CreateProduct_LongImageName_DomainExceptionLongImageName(string url)
@@ -83,6 +127,7 @@ namespace HelpApp.Domain.Test
                 .Throw<HelpApp.Domain.Validation.DomainExceptionValidation>()
                  .WithMessage("Invalid image name, too long, maximum 250 characters.");
         }
+
         #endregion
     }
 }

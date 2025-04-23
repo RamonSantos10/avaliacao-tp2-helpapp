@@ -21,7 +21,7 @@ namespace HelpApp.Infra.IoC
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             
-            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
 
             return services;
