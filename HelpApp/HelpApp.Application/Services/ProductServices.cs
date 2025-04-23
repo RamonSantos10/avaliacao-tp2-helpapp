@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HelpApp.Application.Services
 {
-    internal class ProductServices
+    public class ProductServices
     {
     }
 }

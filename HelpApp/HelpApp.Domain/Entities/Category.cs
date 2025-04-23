@@ -10,10 +10,7 @@ namespace HelpApp.Domain.Entities
         #endregion
 
         #region Construtores
-        public Category(string name)
-        {
-            ValidateDomain(name);
-        }
+        public Category(string name) => ValidateDomain(name);
 
         public Category(int id, string name)
         {
