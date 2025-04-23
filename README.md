@@ -80,7 +80,7 @@ Branch da entrega: avaliacao-RamonSantos10
 ## 🖼️ Prints de evidência
 
 ### 1. Configuração da Connection String do SQL Server Local
-![Configuração do SQL Server](./docs/images/1_StringDeConexao.png)
+![Configuração da Connection String do SQL Server](./docs/images/1_StringDeConexao.png)
 *Print da tela de configuração da Connection String do SQL Server Management Studio para a conexão local*
 
 ### 2. Aplicação das Migrations
@@ -94,4 +94,11 @@ Branch da entrega: avaliacao-RamonSantos10
 ### 4. Dados na Tabela de Categorias
 ![Dados Populados](./docs/images/4_TabelaCategoriesExemplo.png)
 *Print mostrando os registros inseridos na tabela de "categories" através do HasData()*
+
+### 5. Build para Entrega
+![Sucesso na Build para Entrega](./docs/images/5_BuildParaEntrega.png)
+*Print mostrando os registros inseridos na tabela de "categories" através do HasData()*
+
+
+
 
