@@ -32,11 +32,13 @@ dotnet ef database update --project Infra.Data --startup-project WebAPI
 ## Aplicação no banco de dados (Azure)
 dotnet ef database update --project Infra.Data --startup-project WebAPI
 
-# 🔗 String de conexão (mascarada)
+# 🔗 String de conexão (SQL Server Local)
 
 "ConnectionStrings": {
-  "DefaultConnection": "Server=tcp:servidor-sql-aluno.database.windows.net,1433;Initial Catalog=NomeDoBanco;Persist Security Info=False;User ID=aluno_azure;Password=********;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+  "DefaultConnection": "Server=SEU_SERVIDOR;Database=NOME_DO_BANCO;User Id=USUARIO;Password=******;Encrypt=False;TrustServerCertificate=True;MultipleActiveResultSets=True;"
 }
+
+> **Observação:** Devido ao esgotamento dos créditos gratuitos na Azure, a aplicação foi migrada para utilizar SQL Server local. Esta alteração não afeta a funcionalidade do sistema, mantendo todas as características da implementação original.
 
 # ☁️ Configuração no Azure
 SQL Server criado no portal Azure
@@ -48,21 +50,6 @@ IP local autorizado no firewall
 Autenticação SQL ativada
 
 Migration aplicada com sucesso diretamente do Visual Studio Terminal
-
-# 🖼️ Prints de evidência (opcional)
-Insira prints aqui comprovando:
-
-Aplicação bem-sucedida da migration no Azure
-
-Tabelas e dados populados
-
-# 👨‍💻 Dados do aluno
-Nome: [Seu Nome Aqui]
-Curso: Desenvolvimento de Sistemas – 3º Semestre
-
-Professor: Victor Icoma
-
-Branch da entrega: avaliacao-githubaluno
 
 ## 🧱 Estrutura da aplicação
 
@@ -76,4 +63,39 @@ Branch da entrega: avaliacao-githubaluno
  ┃ ┃ ┣ 📂 Repositories
  ┃ ┃ ┗ 📂 EntityConfiguration
  ┗ 📂 WebAPI
+```
+
+---
+
+# 📝 Entrega do Aluno
+
+## 👨‍💻 Dados do aluno
+Nome: Ramon dos Santos
+Curso: Desenvolvimento de Sistemas – 3º Semestre
+
+Professor: Victor Icoma
+
+Branch da entrega: avaliacao-RamonSantos10
+
+## 🖼️ Prints de evidência
+
+### 1. Configuração do SQL Server Local
+![Configuração do SQL Server](./docs/images/sql-server-config.png)
+*Print da tela de configuração do SQL Server Management Studio mostrando a conexão local*
+
+### 2. Aplicação das Migrations
+![Execução da Migration](./docs/images/migration-execution.png)
+*Print do terminal mostrando o comando de migration sendo executado com sucesso*
+
+### 3. Estrutura do Banco de Dados
+![Estrutura do Banco](./docs/images/database-structure.png)
+*Print do SQL Server Management Studio mostrando as tabelas Category e Product criadas no banco local*
+
+### 4. Dados nas Tabelas
+![Dados Populados](./docs/images/table-data.png)
+*Print mostrando os registros inseridos nas tabelas através do HasData()*
+
+### 5. Aplicação em Execução
+![API em Execução](./docs/images/api-running.png)
+*Print do Swagger ou Postman mostrando as requisições funcionando corretamente*
 
