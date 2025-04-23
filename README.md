@@ -79,23 +79,19 @@ Branch da entrega: avaliacao-RamonSantos10
 
 ## 🖼️ Prints de evidência
 
-### 1. Configuração do SQL Server Local
-![Configuração do SQL Server](./docs/images/sql-server-config.png)
-*Print da tela de configuração do SQL Server Management Studio mostrando a conexão local*
+### 1. Configuração da Connection String do SQL Server Local
+![Configuração do SQL Server](./docs/images/1_StringDeConexao.png)
+*Print da tela de configuração da Connection String do SQL Server Management Studio para a conexão local*
 
 ### 2. Aplicação das Migrations
-![Execução da Migration](./docs/images/migration-execution.png)
-*Print do terminal mostrando o comando de migration sendo executado com sucesso*
+![Execução da Migration](./docs/images/2_ExecutandoMigrationEUpdateDatabase.png)
+*Print do terminal mostrando o comando de criação da migration e de atualização do banco sendo executados com sucesso*
 
 ### 3. Estrutura do Banco de Dados
-![Estrutura do Banco](./docs/images/database-structure.png)
+![Estrutura do Banco](./docs/images/3_BancoProntoNoSQLServer.png)
 *Print do SQL Server Management Studio mostrando as tabelas Category e Product criadas no banco local*
 
-### 4. Dados nas Tabelas
-![Dados Populados](./docs/images/table-data.png)
-*Print mostrando os registros inseridos nas tabelas através do HasData()*
-
-### 5. Aplicação em Execução
-![API em Execução](./docs/images/api-running.png)
-*Print do Swagger ou Postman mostrando as requisições funcionando corretamente*
+### 4. Dados na Tabela de Categorias
+![Dados Populados](./docs/images/4_TabelaCategoriesExemplo.png)
+*Print mostrando os registros inseridos na tabela de "categories" através do HasData()*
 
